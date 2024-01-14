@@ -5,6 +5,7 @@ import 'package:whatsappclone/features/app/const/page_const.dart';
 import 'package:whatsappclone/features/app/global/widgets/dialog_widget.dart';
 import 'package:whatsappclone/features/app/global/widgets/profile_widget.dart';
 import 'package:whatsappclone/features/app/theme/style.dart';
+import 'package:whatsappclone/features/users/presentation/cubit/auth/auth_cubit.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({
@@ -26,21 +27,24 @@ class _SettingsPageState extends State<SettingsPage> {
         children: [
           Row(
             children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    PageConst.editProfilePage,
-                  );
-                },
-                child: SizedBox(
-                  width: 65,
-                  height: 65,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(32.5),
-                    child: profileWidget(
-                        imageUrl:
-                            "https://images.pexels.com/photos/18489099/pexels-photo-18489099/free-photo-of-man-in-white-shirt-with-book-in-hands.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      PageConst.editProfilePage,
+                    );
+                  },
+                  child: SizedBox(
+                    width: 65,
+                    height: 65,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(32.5),
+                      child: profileWidget(
+                          imageUrl:
+                              "https://images.pexels.com/photos/18489099/pexels-photo-18489099/free-photo-of-man-in-white-shirt-with-book-in-hands.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
+                    ),
                   ),
                 ),
               ),
@@ -100,7 +104,7 @@ class _SettingsPageState extends State<SettingsPage> {
               icon: Icons.exit_to_app,
               onTap: () {
                 displayAlertDialog(context, onTap: () {
-                  // BlocProvider.of<AuthCubit>(context).loggedOut();
+                  BlocProvider.of<AuthCubit>(context).loggedOut();
                   Navigator.pushNamedAndRemoveUntil(
                       context, PageConst.welcomePage, (route) => false);
                 },

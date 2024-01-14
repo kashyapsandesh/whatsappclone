@@ -28,5 +28,9 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	  <key>CFBundleURLSchemes</key>
+        <array>
+            <string>app-1-1016815602526-ios-9e927c35cae81413c51dcf</string>
+        </array>
 </dict>
 </plist>

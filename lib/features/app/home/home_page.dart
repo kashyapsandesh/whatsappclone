@@ -9,10 +9,8 @@ import 'package:whatsappclone/features/chats/presentation/pages/chat_page.dart';
 import 'package:whatsappclone/features/status/presentation/pages/status_page.dart';
 
 class HomePage extends StatefulWidget {
-  // final String uid;
-  const HomePage({
-    super.key,
-  });
+  final String uid;
+  const HomePage({super.key, required this.uid});
   //  required this.uid
 
   @override

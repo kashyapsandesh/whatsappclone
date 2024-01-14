@@ -56,5 +56,16 @@
 	<key>NSMicrophoneUsageDescription</key>
 
 	<string>Need to upload image</string>
+
+
+	<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>app-1-1016815602526-ios-9e927c35cae81413c51dcf</string>
+        </array>
+    </dict>
+</array>
 </dict>
 </plist>

@@ -8,12 +8,14 @@ import 'package:whatsappclone/features/app/const/app_const.dart';
 import 'package:whatsappclone/features/app/global/widgets/profile_widget.dart';
 import 'package:whatsappclone/features/app/home/home_page.dart';
 import 'package:whatsappclone/features/app/theme/style.dart';
+import 'package:whatsappclone/features/users/domain/entities/user_entities.dart';
+import 'package:whatsappclone/features/users/presentation/cubit/credential/credential_cubit.dart';
 import 'package:whatsappclone/storage/storage_provider.dart';
 
 class InitialProfileSubmitPage extends StatefulWidget {
-  // final String phoneNumber;
+  final String phoneNumber;
   const InitialProfileSubmitPage({
-    super.key,
+    super.key, required this.phoneNumber,
   });
 
   @override
@@ -102,12 +104,7 @@ class _InitialProfileSubmitPageState extends State<InitialProfileSubmitPage> {
               height: 20,
             ),
             GestureDetector(
-              onTap: () {
-                Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
-                    (route) => false);
-              },
+              onTap: submitProfileInfo,
               child: Container(
                 width: 150,
                 height: 40,
@@ -149,17 +146,17 @@ class _InitialProfileSubmitPageState extends State<InitialProfileSubmitPage> {
   }
 
   void _profileInfo({String? profileUrl}) {
-    // if (_usernameController.text.isNotEmpty) {
-    //   BlocProvider.of<CredentialCubit>(context).submitProfileInfo(
-    //       user: UserEntity(
-    //         email: "",
-    //         username: _usernameController.text,
-    //         phoneNumber: widget.phoneNumber,
-    //         status: "Hey There! I'm using WhatsApp Clone",
-    //         isOnline: false,
-    //         profileUrl: profileUrl,
-    //       )
-    //   );
-    // }
+    if (_usernameController.text.isNotEmpty) {
+      BlocProvider.of<CredentialCubit>(context).submitProfileInfo(
+          user: UserEntity(
+            email: "",
+            username: _usernameController.text,
+            phoneNumber: widget.phoneNumber,
+            status: "Hey There! I'm using WhatsApp Clone",
+            isOnline: false,
+            profileUrl: profileUrl,
+          )
+      );
+    }
   }
 }

@@ -5,6 +5,8 @@ import 'package:whatsappclone/features/app/settings/setting_page.dart';
 import 'package:whatsappclone/features/call/presentation/pages/call_contacts_page.dart';
 import 'package:whatsappclone/features/chats/presentation/pages/single_chat_page.dart';
 import 'package:whatsappclone/features/status/presentation/pages/my_status.dart';
+import 'package:whatsappclone/features/users/domain/entities/user_entities.dart';
+import 'package:whatsappclone/features/users/presentation/screens/edit_profile_page.dart';
 
 class OnGenerateRoute {
   static Route<dynamic>? route(RouteSettings settings) {
@@ -26,13 +28,14 @@ class OnGenerateRoute {
             return materialPageBuilder(const ErrorPage());
           }
         }
-      // case PageConst.editProfilePage: {
-      //   if(args is UserEntity) {
-      //     return materialPageBuilder( EditProfilePage(currentUser: args));
-      //   } else {
-      //     return materialPageBuilder( const ErrorPage());
-      //   }
-      // }
+      case PageConst.editProfilePage:
+        {
+          if (args is UserEntity) {
+            return materialPageBuilder(EditProfilePage(currentUser: args));
+          } else {
+            return materialPageBuilder(const ErrorPage());
+          }
+        }
       case PageConst.callContactsPage:
         {
           return materialPageBuilder(const CallContactsPage());
