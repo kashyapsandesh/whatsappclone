@@ -3,8 +3,10 @@ import 'package:whatsappclone/features/app/const/app_const.dart';
 import 'package:whatsappclone/features/app/splash/splash_screen.dart';
 import 'package:whatsappclone/features/app/theme/style.dart';
 import 'package:whatsappclone/routes/on_generated_routes.dart';
+import 'main_injection_container.dart' as di;
 
-void main() {
+void main() async {
+  await di.init();
   runApp(const MyApp());
 }
 
